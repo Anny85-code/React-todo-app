@@ -5,6 +5,7 @@ class TodoItem extends React.Component {
   state = {
     editing: false,
   };
+
   handleEditing = () => {
     this.setState({
       editing: true,
@@ -16,6 +17,7 @@ class TodoItem extends React.Component {
       this.setState({ editing: false });
     }
   };
+
   render() {
     const completedStyle = {
       fontStyle: 'italic',
@@ -25,8 +27,8 @@ class TodoItem extends React.Component {
     };
 
     const { completed, id, title } = this.props.todo;
-    let viewMode = {};
-    let editMode = {};
+    const viewMode = {};
+    const editMode = {};
 
     if (this.state.editing) {
       viewMode.display = 'none';
@@ -37,7 +39,7 @@ class TodoItem extends React.Component {
       <li className={styles.item}>
         <div onDoubleClick={this.handleEditing} style={viewMode}>
           <input
-            type='checkbox'
+            type="checkbox"
             className={styles.checkbox}
             checked={completed}
             onChange={() => this.props.handleChangeProps(id)}
@@ -46,7 +48,7 @@ class TodoItem extends React.Component {
           <span style={completed ? completedStyle : null}>{title}</span>
         </div>
         <input
-          type='text'
+          type="text"
           style={editMode}
           className={styles.textInput}
           value={title}
