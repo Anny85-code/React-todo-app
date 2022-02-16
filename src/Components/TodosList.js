@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import TodoItem from './TodoItem';
 
-export class TodosList extends Component {
+class TodosList extends React.Component {
   render() {
     return (
       <ul>
@@ -11,6 +11,7 @@ export class TodosList extends Component {
             todo={todo}
             handleChangeProps={this.props.handleChangeProps}
             deleteTodoProps={this.props.deleteTodoProps}
+            setUpdate={this.props.setUpdate}
           />
         ))}
       </ul>
